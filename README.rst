@@ -13,11 +13,11 @@ Detailed documentation is in the "docs" directory.
 Quick start
 -----------
 
-1. Add "drf-ns-hercip" to your INSTALLED_APPS setting like this::
+1. Add "drf-ns" to your INSTALLED_APPS setting like this::
 
     INSTALLED_APPS = [
         ...
-        'drf-ns-hercip',
+        'drf-ns',
     ]
 
 2. This also includes ModelTracker as Base model class for your app
