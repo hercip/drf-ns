@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  python_backend:
+    container_name: ${COMPOSE_PROJECT_NAME}.dev.backend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./code:/opt/hc/django/code
+      - ~/.ssh:/root/.ssh
+      - ~/.pypirc:/root/.pypirc
+      - ~/.testpypi:/root/.testpypi
+    ports:
+      - "${BACKEND_PORT}:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=app.settings.dev
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - DEBUG=True
+      - ALLOWED_HOSTS=*
+    command:
+      ["sleep", "infinity"]
+
